@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pendaftaran Les</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="bg-gradient-to-r from-softblue to-softpink flex items-center justify-center h-screen">
+
+<div class="bg-white p-8 rounded-xl shadow-lg w-96">
+
+<h2 class="text-2xl font-bold text-center mb-6">
+Pendaftaran Les
+</h2>
+
+<form id="formDaftar">
+
+<!-- Nama siswa -->
+
+<input
+id="namaSiswa"
+type="text"
+placeholder="Nama Siswa"
+class="w-full border p-2 mb-3 rounded"
+/>
+
+<!-- Jenjang -->
+
+<select
+id="jenjang"
+class="w-full border p-2 mb-3 rounded"
+>
+
+<option value="">-- Pilih Jenjang --</option>
+<option>TK</option>
+<option>SD</option>
+<option>SMP</option>
+
+</select>
+
+<!-- Jenis kelamin -->
+
+<select
+id="gender"
+class="w-full border p-2 mb-3 rounded"
+>
+
+<option value="">-- Jenis Kelamin --</option>
+<option>Laki-laki</option>
+<option>Perempuan</option>
+
+</select>
+
+<!-- Nama orang tua -->
+
+<input
+id="namaOrtu"
+type="text"
+placeholder="Nama Orang Tua"
+class="w-full border p-2 mb-3 rounded"
+/>
+
+<!-- No HP -->
+
+<input
+id="nohp"
+type="text"
+placeholder="No HP"
+class="w-full border p-2 mb-3 rounded"
+/>
+
+<!-- Paket les -->
+
+<select
+id="paket"
+class="w-full border p-2 mb-4 rounded"
+>
+
+<option value="">-- Pilih Paket Les --</option>
+<option>TK Calistung</option>
+<option>SD Matematika</option>
+<option>SD Bahasa Inggris</option>
+<option>SMP Matematika</option>
+<option>SMP Bahasa Inggris</option>
+
+</select>
+
+<button
+type="submit"
+class="bg-pink-400 text-white w-full p-2 rounded hover:bg-pink-500"
+>
+
+Daftar
+
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+document.getElementById("formDaftar").addEventListener("submit", function(e){
+
+e.preventDefault()
+
+let namaSiswa = document.getElementById("namaSiswa").value
+let jenjang = document.getElementById("jenjang").value
+let gender = document.getElementById("gender").value
+let namaOrtu = document.getElementById("namaOrtu").value
+let nohp = document.getElementById("nohp").value
+let paket = document.getElementById("paket").value
+
+let huruf = /^[A-Za-z\s]+$/
+let angka = /^[0-9]+$/
+
+// cek kosong
+
+if(namaSiswa=="" || jenjang=="" || gender=="" || namaOrtu=="" || nohp=="" || paket==""){
+alert("Semua data harus diisi!")
+return
+}
+
+// nama siswa harus huruf
+
+if(!huruf.test(namaSiswa)){
+alert("Nama siswa tidak boleh mengandung angka!")
+return
+}
+
+// nama ortu harus huruf
+
+if(!huruf.test(namaOrtu)){
+alert("Nama orang tua tidak boleh mengandung angka!")
+return
+}
+
+// no hp harus angka
+
+if(!angka.test(nohp)){
+alert("No HP tidak boleh mengandung huruf!")
+return
+}
+
+// jika semua benar
+
+alert("Pendaftaran berhasil!")
+
+})
+
+</script>
+
+</body>
+</html>
